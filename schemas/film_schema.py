@@ -6,3 +6,7 @@ class Film(BaseModel):
     title: str
     year: int
     rented: bool = False
+
+class FilmUpdate(BaseModel):
+    title: Optional[str]
+    year: Optional[int]
