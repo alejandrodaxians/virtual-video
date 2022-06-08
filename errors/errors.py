@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 
 class FilmNotFoundException(Exception):
     def __init__(self, name: str):
-        self.title_search = name
+        self.keyword = name
 
 class IdNotFoundException(Exception):
     def __init__(self, id: int):
@@ -14,7 +14,7 @@ def exception_handler_wrapper(app: FastAPI):
     async def film_exception_handler(request: Request, exc: FilmNotFoundException):
         return JSONResponse(
             status_code=404,
-            content={"message": f"No coincidences found with {exc.title_search}"},
+            content={"message": f"No coincidences found with {exc.keyword}"},
         )
 
     @app.exception_handler(IdNotFoundException)
