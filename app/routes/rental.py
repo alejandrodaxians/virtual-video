@@ -1,8 +1,8 @@
 from fastapi import APIRouter
-from config.db import conn
-from errors.errors import FilmNotFoundException, IdNotFoundException
-from models.film_model import films_table
-from schemas.film_schema import Film
+from app.config.db import conn
+from app.errors.errors import FilmNotFoundException, IdNotFoundException
+from app.models.film_model import films_table
+from app.schemas.film_schema import Film
 
 rental = APIRouter()
 

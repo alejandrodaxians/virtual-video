@@ -1,7 +1,8 @@
 from fastapi import FastAPI
-from routes.film import film
-from routes.rental import rental
-from errors.errors import exception_handler_wrapper
+from app.routes.film import film
+from app.routes.rental import rental
+from app.errors.errors import exception_handler_wrapper
+from starlette.responses import RedirectResponse
 
 description = """
 ## Virtual-video rental service includes two routes:
@@ -30,6 +31,10 @@ app = FastAPI(
 app.include_router(film)
 app.include_router(rental)
 
-#handler for film not found
+#handler for film or id not found
 exception_handler_wrapper(app)
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/docs")
 
