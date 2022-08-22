@@ -18,7 +18,7 @@ docker pull mysql
 - Run the container based on the image to connect to the database:
 
 ```bash
-docker run docker run --name mysql-container -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysql24601 -e MYSQL_DATABASE=filmsdb -d mysql
+docker run --name mysql-container -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysql24601 -e MYSQL_DATABASE=filmsdb -d mysql
 ```
 
 <br>
